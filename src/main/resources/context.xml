@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<generatorConfiguration>
+	<jdbcConnection driverClass="org.postgresql.Driver"
+								url="jdbc:postgresql://localhost/analyticalDB"
+								username = "root"
+								password = "root">
+	</jdbcConnection>
+	<base packageName = "cn.howso.framework.test"
+				basePackageName = "cn.howso.framework.base"
+				outputDir = "D:/JavaBean/src">
+	</base>
+	<tables>
+		<table tableName = "sm_license" >
+		</table>
+		<table tableName = "sm_exception_log" >
+		</table>
+	</tables>
+</generatorConfiguration>
