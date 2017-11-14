@@ -1,4 +1,4 @@
-package ${packageName}.entity;
+package ${packageName}.model.pojo;
 
 <#list attrs as attr> 
 	<#if attr.type == "Date" >
@@ -30,10 +30,12 @@ public class ${className} {
     
     @Override
     public String toString() {
-        return "${className} ["
-        <#list attrs as attr>
-        + "${attr.camel}=" + ${attr.camel} +", "
+    	StringBuilder sb = new StringBuilder();
+    	sb.append("${className}[");
+    	 <#list attrs as attr>
+        sb.append("${attr.camel}=${attr.camel}, "）;
         </#list>
-       +" ]";
+    	sb.append("]");
+        return sb.toString();
     }
 }

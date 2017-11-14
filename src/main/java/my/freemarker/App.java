@@ -40,7 +40,7 @@ public class App {
             String className = StringUtil.underlineToUpperCamel(tableName);
             List<JavaAttr> attrList = JdbcUtil.getAttrList(tableName, url, username, password);
             GeneratorUtil g = new GeneratorUtil(tableName);
-            g.generatorAll(packageName, basePackageName, className, attrList, outputDir);
+            g.generatorJava(packageName, basePackageName, className, attrList, outputDir);
         });
             
     }
