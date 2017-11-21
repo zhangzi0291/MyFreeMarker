@@ -33,7 +33,7 @@ public class ${className} {
     	StringBuilder sb = new StringBuilder();
     	sb.append("${className}[");
     	 <#list attrs as attr>
-        sb.append("${attr.camel}=${attr.camel}, "）;
+        sb.append("${attr.camel}=${attr.camel}, ");
         </#list>
     	sb.append("]");
         return sb.toString();

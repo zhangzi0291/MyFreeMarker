@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ${basePackageName}.Page;
 import ${basePackageName}.exception.DaoException;
-import ${packageName}.entity.${className};
-import ${packageName}.entity.${className}Example;
+import ${packageName}.model.pojo.${className};
+import ${packageName}.model.pojo.${className}Example;
 import ${packageName}.service.${className}Service;
 
 @Controller

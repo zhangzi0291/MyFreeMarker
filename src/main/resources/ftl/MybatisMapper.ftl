@@ -88,7 +88,7 @@
       order by ${r'${orderByClause}'}
     </if>
     <if test="page != null" >
-      limit ${r'#{page.pageSize}'} offset ${r'#{page.begin}'}
+      limit ${r'#{page.limit}'} offset ${r'#{page.offset}'}*${r'#{page.limit}'}
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

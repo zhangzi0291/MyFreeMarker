@@ -1,7 +1,10 @@
 package ${packageName}.dao;
 
-import ${packageName}.entity.${className};
-import ${packageName}.entity.${className}Example;
+import org.apache.ibatis.annotations.Param;
+import java.util.List;
+
+import ${packageName}.model.pojo.${className};
+import ${packageName}.model.pojo.${className}Example;
 
 public interface ${className}Dao {
     
