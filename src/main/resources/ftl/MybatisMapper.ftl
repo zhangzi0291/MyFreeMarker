@@ -11,20 +11,20 @@
       <foreach collection="oredCriteria" item="criteria" separator="or" >
         <if test="criteria.valid" >
           <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
+            <foreach collection="criteria.criteria" item="example" >
               <choose >
-                <when test="criterion.noValue" >
-                  and ${r'${criterion.condition}'}
+                <when test="example.noValue" >
+                  and ${r'${example.condition}'}
                 </when>
-                <when test="criterion.singleValue" >
-                  and ${r'${criterion.condition}'} ${r'#{criterion.value}'}
+                <when test="example.singleValue" >
+                  and ${r'${example.condition}'} ${r'#{example.value}'}
                 </when>
-                <when test="criterion.betweenValue" >
-                  and ${r'${criterion.condition}'} ${r'#{criterion.value}'} and ${r'#{criterion.secondValue}'}
+                <when test="example.betweenValue" >
+                  and ${r'${example.condition}'} ${r'#{example.value}'} and ${r'#{example.secondValue}'}
                 </when>
-                <when test="criterion.listValue" >
-                  and ${r'${criterion.condition}'}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                <when test="example.listValue" >
+                  and ${r'${example.condition}'}
+                  <foreach collection="example.value" item="listItem" open="(" close=")" separator="," >
                     ${r'#{listItem}'}
                   </foreach>
                 </when>
@@ -40,20 +40,20 @@
       <foreach collection="example.oredCriteria" item="criteria" separator="or" >
         <if test="criteria.valid" >
           <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
+            <foreach collection="criteria.criteria" item="example" >
               <choose >
-                <when test="criterion.noValue" >
-                  and ${r'${criterion.condition}'}
+                <when test="example.noValue" >
+                  and ${r'${example.condition}'}
                 </when>
-                <when test="criterion.singleValue" >
-                  and ${r'${criterion.condition}'} ${r'#{criterion.value}'}
+                <when test="example.singleValue" >
+                  and ${r'${example.condition}'} ${r'#{example.value}'}
                 </when>
-                <when test="criterion.betweenValue" >
-                  and ${r'${criterion.condition}'} ${r'#{criterion.value}'} and ${r'#{criterion.secondValue}'}
+                <when test="example.betweenValue" >
+                  and ${r'${example.condition}'} ${r'#{example.value}'} and ${r'#{example.secondValue}'}
                 </when>
-                <when test="criterion.listValue" >
-                  and ${r'${criterion.condition}'}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                <when test="example.listValue" >
+                  and ${r'${example.condition}'}
+                  <foreach collection="example.value" item="listItem" open="(" close=")" separator="," >
                     ${r'#{listItem}'}
                   </foreach>
                 </when>
@@ -152,10 +152,10 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
     update ${tableName}
-    <set >
+    <set>
        <#list attrs as attr> 
-	   	  <if test="${attr.camel} != null" >
-	        ${attr.underLine} = ${r'#{'} ${attr.camel},jdbcType=${attr.jdbcType}},
+	   	  <if test="record.${attr.camel} != null" >
+	        ${attr.underLine} = ${r'#{record.'}${attr.camel},jdbcType=${attr.jdbcType}},
 	      </if>
 	   </#list> 
     </set>
@@ -168,9 +168,9 @@
     set 
     	<#list attrs as attr> 
     	<#if attr_has_next>
-	        ${attr.underLine} = ${r'#{'} ${attr.camel},jdbcType=${attr.jdbcType}},
+	        ${attr.underLine} = ${r'#{record.'}${attr.camel},jdbcType=${attr.jdbcType}},
 	     <#else>
-	        ${attr.underLine} = ${r'#{'} ${attr.camel},jdbcType=${attr.jdbcType}}
+	        ${attr.underLine} = ${r'#{record.'}${attr.camel},jdbcType=${attr.jdbcType}}
 	     </#if>
 	   </#list> 
     <if test="_parameter != null" >
@@ -179,7 +179,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="${javaBean}" >
     update ${tableName}
-    <set >
+    <set>
     <#list attrs as attr> 
       <#if !attr?is_first>
    	  <if test="${attr.camel} != null" >

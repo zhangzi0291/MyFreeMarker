@@ -10,7 +10,13 @@
 				outputDir = "D:/JavaBean/src">
 	</base>
 	<tables>
+		<table tableName = "fusion_floor" >
+		</table>
+		<table tableName = "fusion_floor_img" >
+		</table>
 		<table tableName = "fusion_building_floor" >
+		</table>
+		<table tableName = "fusion_elevator" >
 		</table>
 	</tables>
 </generatorConfiguration>
