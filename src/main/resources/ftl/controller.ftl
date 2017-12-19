@@ -77,7 +77,7 @@ public class ${className}Controller {
     }
     
     @RequestMapping("edit.html")
-    public String editHtml(Map<String, Object> map, String id){
+    public String editHtml(Map<String, Object> map, ${attrs[0].type} id){
         try {
             ${className} ${className?uncap_first} = ${className?uncap_first}Service.selectByPrimaryKey(id);
             map.put("info", ${className?uncap_first});
@@ -105,7 +105,7 @@ public class ${className}Controller {
     
     @RequestMapping("del.json")
     @ResponseBody
-    public String delJson(Map<String, Object> map, @RequestParam("ids[]") List<String >ids ){
+    public String delJson(Map<String, Object> map, @RequestParam("ids[]") List<${attrs[0].type}> ids ){
         Integer num = 0;
         try {
             for(int i=0;i<ids.size();i++){

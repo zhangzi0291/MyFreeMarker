@@ -59,7 +59,7 @@ public class GeneratorUtil {
         generatorDao(packageName, className, basePackageName, attrList, outputDir);
         generatorJavaBean(packageName, className, attrList, outputDir);
         generatorJavaBeanExample(packageName, className, basePackageName, attrList, outputDir);
-        generatorMapper(basePackageName, className, attrList, outputDir);
+        generatorMapper(packageName, className, attrList, outputDir);
         generatorService(packageName, className, basePackageName, attrList, outputDir);
         generatorServiceImpl(packageName, className, basePackageName, attrList, outputDir);
         System.out.println("全部完成");
@@ -74,7 +74,7 @@ public class GeneratorUtil {
         generatorDao(packageName, className, basePackageName, attrList, outputDir);
         generatorJavaBean(packageName, className, attrList, outputDir);
         generatorJavaBeanExample(packageName, className, basePackageName, attrList, outputDir);
-        generatorMapper(basePackageName, className, attrList, outputDir);
+        generatorMapper(packageName, className, attrList, outputDir);
         generatorService(packageName, className, basePackageName, attrList, outputDir);
         generatorServiceImpl(packageName, className, basePackageName, attrList, outputDir);
         System.out.println("全部完成");
@@ -201,8 +201,8 @@ public class GeneratorUtil {
         String ftlName = "MybatisMapper.ftl";
 
         String namespace = packageName+".dao."+className+"Dao";
-        String javaBean = packageName+"."+className;
-        String javaBeanExample = packageName+"."+className+"Example";
+        String javaBean = packageName+".entity."+className;
+        String javaBeanExample = packageName+".entity."+className+"Example";
         Map<String, Object> root = new HashMap<String, Object>();
         root.put("namespace", namespace);
         root.put("javaBean", javaBean);

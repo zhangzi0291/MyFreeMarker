@@ -67,7 +67,7 @@ function initEvent(){
 		if(row.length != 1){
 			layer.msg("请选择一条记录")
 		}
-		if(row[0].orderticketsId==undefined){
+		if(row[0].${attrs[0].camel}==undefined){
 			layer.msg("跳转错误")
 			return;
 		}

@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <generatorConfiguration>
 	<jdbcConnection driverClass="org.postgresql.Driver"
-								url="jdbc:postgresql://localhost/analyticalDB"
+								url="jdbc:postgresql://localhost/springdemo"
 								username = "root"
 								password = "root">
 	</jdbcConnection>
-	<base packageName = "cn.howso.framework.test"
-				basePackageName = "cn.howso.framework.base"
+	<base packageName = "com.demo"
+				basePackageName = "com.demo.base"
 				outputDir = "D:/JavaBean/src">
 	</base>
 	<tables>
-		<table tableName = "sm_license" >
-		</table>
-		<table tableName = "sm_exception_log" >
+		<table tableName = "bo_attach_url" >
 		</table>
 	</tables>
 </generatorConfiguration>

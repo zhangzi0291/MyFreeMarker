@@ -127,52 +127,52 @@ public class ${className}Example implements Example {
             addCriterion("${attr.underLine} is not null");
             return (Criteria) this;
         }
-        public Criteria and${attr.upperCamel}EqualTo(Integer value) {
+        public Criteria and${attr.upperCamel}EqualTo(${attr.type!} value) {
             addCriterion("${attr.underLine} =", value, "${attr.camel}");
             return (Criteria) this;
         }
 
-        public Criteria and${attr.upperCamel}NotEqualTo(Integer value) {
+        public Criteria and${attr.upperCamel}NotEqualTo(${attr.type!} value) {
             addCriterion("${attr.underLine} <>", value, "${attr.camel}");
             return (Criteria) this;
         }
 
-        public Criteria and${attr.upperCamel}GreaterThan(Integer value) {
+        public Criteria and${attr.upperCamel}GreaterThan(${attr.type!} value) {
             addCriterion("${attr.underLine} >", value, "${attr.camel}");
             return (Criteria) this;
         }
 
-        public Criteria and${attr.upperCamel}GreaterThanOrEqualTo(Integer value) {
+        public Criteria and${attr.upperCamel}GreaterThanOrEqualTo(${attr.type!} value) {
             addCriterion("${attr.underLine} >=", value, "${attr.camel}");
             return (Criteria) this;
         }
 
-        public Criteria and${attr.upperCamel}LessThan(Integer value) {
+        public Criteria and${attr.upperCamel}LessThan(${attr.type!} value) {
             addCriterion("${attr.underLine} <", value, "${attr.camel}");
             return (Criteria) this;
         }
 
-        public Criteria and${attr.upperCamel}LessThanOrEqualTo(Integer value) {
+        public Criteria and${attr.upperCamel}LessThanOrEqualTo(${attr.type!} value) {
             addCriterion("${attr.underLine} <=", value, "${attr.camel}");
             return (Criteria) this;
         }
 
-        public Criteria and${attr.upperCamel}In(List<Integer> values) {
+        public Criteria and${attr.upperCamel}In(List<${attr.type!}> values) {
             addCriterion("${attr.underLine} in", values, "${attr.camel}");
             return (Criteria) this;
         }
 
-        public Criteria and${attr.upperCamel}NotIn(List<Integer> values) {
+        public Criteria and${attr.upperCamel}NotIn(List<${attr.type!}> values) {
             addCriterion("${attr.underLine} not in", values, "${attr.camel}");
             return (Criteria) this;
         }
 
-        public Criteria and${attr.upperCamel}Between(Integer value1, Integer value2) {
+        public Criteria and${attr.upperCamel}Between(${attr.type!} value1, ${attr.type!} value2) {
             addCriterion("${attr.underLine} between", value1, value2, "${attr.camel}");
             return (Criteria) this;
         }
 
-        public Criteria and${attr.upperCamel}NotBetween(Integer value1, Integer value2) {
+        public Criteria and${attr.upperCamel}NotBetween(${attr.type!} value1, ${attr.type!} value2) {
             addCriterion("${attr.underLine} not between", value1, value2, "${attr.camel}");
             return (Criteria) this;
         }
