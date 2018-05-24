@@ -153,7 +153,36 @@ public class GeneratorUtil {
         outFile(ftlName, filePath, root);
         System.out.println("生成ServiceImpl完成");
     }
-    
+    /**
+     * 
+      * 生成导出excel文件
+      *@param packageName
+      *@param className
+      *@param basePackageName
+      *@param attrList
+      *@param outputDir 
+      *@date 2018年3月28日 下午2:47:09
+      *@author zhengxiangnan
+     */
+    public void generatorExcelServiceImpl(String packageName,String className ,String basePackageName, List<JavaAttr> attrList,String outputDir)  {
+        System.out.println("开始生成ServiceImpl");
+        String filePath = outputDir + "/service/impl/"+className+"ExcelServiceImpl.java";
+        String ftlName = "ExcelServiceImpl.ftl";
+        
+        String Example = basePackageName + ".Example";
+        String Page = basePackageName + ".Pageable";
+        
+        Map<String, Object> root = new HashMap<String, Object>();
+        root.put("packageName", packageName);
+        root.put("basePackageName", basePackageName);
+        root.put("className", className);
+        root.put("Example", Example);
+        root.put("Page", Page);
+        
+        root.put("attrs", getAttrs(attrList));
+        outFile(ftlName, filePath, root);
+        System.out.println("生成ExcelServiceImpl完成");
+    }
     public void generatorService(String packageName,String className ,String basePackageName, List<JavaAttr> attrList,String outputDir)  {
         System.out.println("开始生成Service");
         String filePath = outputDir + "/service/" + className + "Service.java";
@@ -216,7 +245,7 @@ public class GeneratorUtil {
     }
     public void generatorJavaBeanExample(String packageName,String className, String basePackageName, List<JavaAttr> attrList,String outputDir)  {
         System.out.println("开始生成Example");
-        String filePath = outputDir+"/entity/"+className+"Example.java";
+        String filePath = outputDir+"/modal/pojo/"+className+"Example.java";
         String ftlName = "javaBeanExample.ftl";
         
         String Example = basePackageName + ".Example";
@@ -236,7 +265,7 @@ public class GeneratorUtil {
     
     public void generatorJavaBean(String packageName,String className,List<JavaAttr> attrList,String outputDir) {
         System.out.println("开始生成JavaBean");
-        String filePath = outputDir+"/entity/"+className+".java";
+        String filePath = outputDir+"/modal/pojo/"+className+".java";
         String ftlName = "javaBean.ftl";
         Map<String, Object> root = new HashMap<String, Object>();
         root.put("packageName", packageName);
@@ -288,5 +317,49 @@ public class GeneratorUtil {
                 e.printStackTrace();
             }
         }
+    }
+    
+    public void generatorUpdate(String outputDir,String updateName,String beanName)  {
+        System.out.println("开始生成Update");
+        String filePath = outputDir+"/update.txt";
+        String ftlName = "update.ftl";
+
+        Map<String, Object> root = new HashMap<String, Object>();
+        root.put("tableName", tableName);
+        root.put("updateName", updateName);
+        root.put("beanName", beanName);
+        List<String> list = new ArrayList<>();
+        
+        list.add("value");
+        list.add("describemessage");
+        root.put("attrs", list);
+
+        outFile(ftlName, filePath, root);
+        System.out.println("生成Update完成");
+    }
+    public void generatorInsert(String outputDir,String updateName,String beanName)  {
+        System.out.println("开始生成Update");
+        String filePath = outputDir+"/insert.txt";
+        String ftlName = "insert.ftl";
+        
+        Map<String, Object> root = new HashMap<String, Object>();
+        root.put("tableName", tableName);
+        root.put("updateName", updateName);
+        root.put("beanName", beanName);
+        List<String> list = new ArrayList<>();
+        
+        list.add("id");
+        
+        list.add("value");
+        list.add("describemessage");
+        root.put("attrs", list);
+        
+        outFile(ftlName, filePath, root);
+        System.out.println("生成Update完成");
+    }
+    public static void main(String[] args) {
+        GeneratorUtil g = new GeneratorUtil("administrativeunit");
+        g.generatorUpdate("D:/123/","updateAdministrativeUnit","administrativeUnit");
+//        g.generatorInsert("D:/123/","insertAdministrativeUnit","administrativeUnit");
     }
 }
